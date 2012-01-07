@@ -5,10 +5,6 @@ class Player
   def play_turn(w)
     w.walk! and return if w.feel.empty? && !resting?
 
-    puts '-' * 20
-    puts @@rest
-    puts '-' * 20
-
     if @@rest > 0
       w.rest!
       @@rest -= 1
@@ -18,7 +14,7 @@ class Player
     if w.health > 3
       w.attack!
     else
-      @@rest = 2
+      @@rest = 4
       w.walk!(:backward)
     end
 
